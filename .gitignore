@@ -6,3 +6,9 @@
 /.vscode/
 .DS_Store
 Thumbs.db
+.gitkeep
+PASO.TXT
+1_crear_proyecto.php
+2_generar_crud.php
+README.md
+/bin/
