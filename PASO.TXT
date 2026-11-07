@@ -1,0 +1,1 @@
+cd C:\xampp\htdocs\Semana2_Tarea2; & "C:\xampp\php\php.exe" .\1_crear_proyecto.php

@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Bloquear archivos ocultos y configuraciones
+RewriteRule (^|/)\.env($|/) - [F,L]
+RewriteRule (^|/)\.env\. - [F,L]
+RewriteRule ^\.git - [F,L]
+RewriteRule ^\.env\.example$ - [F,L]
+
+# Bloquear archivos internos
+RewriteRule ^(src|database|bin)(/|$) - [F,L]
+
+# Los generadores solo deben ejecutarse por consola
+RewriteRule ^(1_crear_proyecto|2_generar_crud)\.php$ - [F,L]
+
+# Evitar acceso directo a archivos de configuración
+<FilesMatch "^(\.env|\.env\.example|\.gitignore|README\.md)$">
+    Require all denied
+</FilesMatch>
+
+# Todo lo demás se sirve desde /public
+RewriteRule ^$ public/ [L]
+RewriteRule ^(?!public/)(.*)$ public/$1 [L]
